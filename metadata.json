@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Mriga",
+  "description": "An interactive voicebot application named Mriga that allows you to chat with different AI personalities. Choose from preset personas or create your own custom AI character.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

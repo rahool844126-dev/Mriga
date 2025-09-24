@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mriga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root, body[data-theme="deep-space"] {
+        --bg-primary: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #4b0082);
+        --text-primary: #ffffff;
+        --text-secondary: #d1d5db; /* gray-300 */
+        --bg-component: rgba(26, 26, 41, 0.8);
+        --border-component: #4b5563; /* gray-600 */
+        --accent-color-1: #8b5cf6; /* violet-500 */
+        --accent-color-2: #a855f7; /* purple-500 */
+        --accent-text: #ffffff;
+        --animation-name: gradient-animation;
+      }
+      body[data-theme="light"] {
+        --bg-primary: #ffffff;
+        --text-primary: #111827; /* gray-900 */
+        --text-secondary: #4b5563; /* gray-600 */
+        --bg-component: rgba(229, 231, 235, 0.8); /* gray-200 */
+        --border-component: #d1d5db; /* gray-300 */
+        --accent-color-1: #6d28d9; /* violet-700 */
+        --accent-color-2: #9333ea; /* purple-600 */
+        --accent-text: #ffffff;
+        --animation-name: none;
+      }
+      body[data-theme="dark"] {
+        --bg-primary: #000000;
+        --text-primary: #f9fafb; /* gray-50 */
+        --text-secondary: #9ca3af; /* gray-400 */
+        --bg-component: rgba(31, 41, 55, 0.8); /* gray-800 */
+        --border-component: #4b5563; /* gray-600 */
+        --accent-color-1: #a78bfa; /* violet-400 */
+        --accent-color-2: #c084fc; /* purple-400 */
+        --accent-text: #111827;
+        --animation-name: none;
+      }
+      body[data-theme="ocean"] {
+        --bg-primary: linear-gradient(-45deg, #2c3e50, #0052d4, #4364f7, #6fb1fc);
+        --text-primary: #ffffff;
+        --text-secondary: #d1d5db;
+        --bg-component: rgba(30, 41, 59, 0.8);
+        --border-component: #6b7280;
+        --accent-color-1: #60a5fa; /* blue-400 */
+        --accent-color-2: #3b82f6; /* blue-500 */
+        --accent-text: #ffffff;
+        --animation-name: gradient-animation;
+      }
+      body[data-theme="sunset"] {
+        --bg-primary: linear-gradient(-45deg, #ff7e5f, #feb47b, #ff9966, #ff5e62);
+        --text-primary: #ffffff;
+        --text-secondary: #fce7f3; /* pink-50 */
+        --bg-component: rgba(120, 40, 43, 0.8);
+        --border-component: #f472b6; /* pink-400 */
+        --accent-color-1: #ec4899; /* pink-500 */
+        --accent-color-2: #d946ef; /* fuchsia-500 */
+        --accent-text: #ffffff;
+        --animation-name: gradient-animation;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        background-size: 400% 400%;
+        animation: var(--animation-name) 20s ease infinite;
+        transition: background 0.5s ease-in-out;
+      }
+      
+      .font-cursive {
+        font-family: 'Dancing Script', cursive;
+      }
+      
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* Custom scrollbar for a better look */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: color-mix(in srgb, var(--accent-color-1) 50%, transparent);
+        border-radius: 20px;
+        border: 3px solid transparent;
+      }
+
+      /* Water ripple effect for the voice button */
+      .water-ripple-button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%, -50%);
+        transform-origin: 50% 50%;
+      }
+      .water-ripple-button:active::after {
+        animation: ripple 1s ease-in-out;
+      }
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0) translate(-50%, -50%);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(25, 25) translate(-50%, -50%);
+          opacity: 0;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
